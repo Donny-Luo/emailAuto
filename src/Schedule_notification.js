@@ -6,7 +6,9 @@ function schedule_notification() {
   //var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Core_data');
   var lr = ss.getLastRow();
 
-  var templateText = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Daisybaby-单纯告知船期").getRange(1, 1).getValue();
+  var ccAddress = ", southcn.oceanops@flexport.com"
+
+  var templateText = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Daisybaby-船期&CRD").getRange(1, 1).getValue();
 
   
   //var emailText = templateText.replace("{name}","AAA").replace("{title}","New titles");
@@ -15,7 +17,7 @@ function schedule_notification() {
 
 
   for (var i = 4; i<=lr;i++){
-    var currentEmail = ss.getRange(i, 18).getValue();
+    var currentEmail = ss.getRange(i, 18).getValue()+ccAddress;
     var currentClassTitle = ss.getRange(i, 19).getValue();
     //var currentClassName = ss.getRange(i, 2).getValue();
     var flexID = ss.getRange(i, 1).getValue();
